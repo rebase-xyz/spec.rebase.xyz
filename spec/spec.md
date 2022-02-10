@@ -25,9 +25,33 @@ email = "orie@transmute.industries"
 
 .# Abstract
 
-abstract
+This document defines a Verifiable Credential format for linked Decentralized Identifiers to existing identifiers, such as web origins, social network accounts, and crypto currency addresses.
 
 {mainmatter}
+
+# Notational Conventions
+
+The keywords **MUST**, **MUST NOT**, **REQUIRED**, **SHALL**, **SHALL NOT**, **SHOULD**,
+**SHOULD NOT**, **RECOMMENDED**, **MAY**, and **OPTIONAL**, when they appear in this
+document, are to be interpreted as described in [@!RFC2119].
+
+# Terminology
+
+# Credential Types
+
+The credential type schemas maintained here are exposed via Open API Specification 3.0.
+
+See the registered credential types at [spec.rebase.org/openapi](https://spec.rebase.org/openapi/).
+
+## Web Origin
+
+## Bitcoin Address
+
+## Ethereum Address
+
+## GitHub Account
+
+## Twitter Account
 
 # Embeddings
 
