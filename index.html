@@ -7,7 +7,7 @@
 <title>example spec</title>
 <meta content="Orie Steele" name="author">
 <meta content="
-       abstract 
+       This document defines a Verifiable Credential format for linked Decentralized Identifiers to existing identifiers, such as web origins, social network accounts, and crypto currency addresses. 
     " name="description">
 <meta content="xml2rfc 3.12.0" name="generator">
 <meta content="example-spec-00" name="ietf.draft">
@@ -1183,7 +1183,7 @@ li > p:last-of-type {
 <thead><tr>
 <td class="left"></td>
 <td class="center">example-spec</td>
-<td class="right">January 2022</td>
+<td class="right">February 2022</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Steele</td>
@@ -1208,7 +1208,7 @@ li > p:last-of-type {
 <h1 id="title">example spec</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">abstract<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">This document defines a Verifiable Credential format for linked Decentralized Identifiers to existing identifiers, such as web origins, social network accounts, and crypto currency addresses.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <div id="toc">
 <section id="section-toc.1">
@@ -1217,38 +1217,125 @@ li > p:last-of-type {
         </h2>
 <nav class="toc"><ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
-            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-embeddings" class="xref">Embeddings</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.1">
-                <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="xref">1.1</a>.  <a href="#name-svg" class="xref">Svg</a></p>
+            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-notational-conventions" class="xref">Notational Conventions</a></p>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.2">
-                <p id="section-toc.1-1.1.2.2.1" class="keepWithNext"><a href="#section-1.2" class="xref">1.2</a>.  <a href="#name-notational-conventions" class="xref">Notational Conventions</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
+            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="xref">2</a>.  <a href="#name-terminology" class="xref">Terminology</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-credential-types" class="xref">Credential Types</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
+                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="xref">3.1</a>.  <a href="#name-web-origin" class="xref">Web Origin</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="xref">3.2</a>.  <a href="#name-bitcoin-address" class="xref">Bitcoin Address</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
+                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="xref">3.3</a>.  <a href="#name-ethereum-address" class="xref">Ethereum Address</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4">
+                <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="xref">3.4</a>.  <a href="#name-github-account" class="xref">GitHub Account</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.5">
+                <p id="section-toc.1-1.3.2.5.1"><a href="#section-3.5" class="xref">3.5</a>.  <a href="#name-twitter-account" class="xref">Twitter Account</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
-            <p id="section-toc.1-1.2.1"><a href="#section-2" class="xref">2</a>.  <a href="#name-normative-references" class="xref">Normative References</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-embeddings" class="xref">Embeddings</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="xref">4.1</a>.  <a href="#name-svg" class="xref">Svg</a></p>
 </li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#appendix-A" class="xref"></a><a href="#name-authors-address" class="xref">Author's Address</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="xref">4.2</a>.  <a href="#name-notational-conventions-2" class="xref">Notational Conventions</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-normative-references" class="xref">Normative References</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
+            <p id="section-toc.1-1.6.1"><a href="#appendix-A" class="xref"></a><a href="#name-authors-address" class="xref">Author's Address</a></p>
 </li>
         </ul>
 </nav>
 </section>
 </div>
-<div id="embeddings">
+<div id="notational-conventions">
 <section id="section-1">
+      <h2 id="name-notational-conventions">
+<a href="#section-1" class="section-number selfRef">1. </a><a href="#name-notational-conventions" class="section-name selfRef">Notational Conventions</a>
+      </h2>
+<p id="section-1-1">The keywords <span class="bcp14">MUST</span>, <span class="bcp14">MUST NOT</span>, <span class="bcp14">REQUIRED</span>, <span class="bcp14">SHALL</span>, <span class="bcp14">SHALL NOT</span>, <span class="bcp14">SHOULD</span>,
+<span class="bcp14">SHOULD NOT</span>, <span class="bcp14">RECOMMENDED</span>, <span class="bcp14">MAY</span>, and <span class="bcp14">OPTIONAL</span>, when they appear in this
+document, are to be interpreted as described in <span>[<a href="#RFC2119" class="xref">RFC2119</a>]</span>.<a href="#section-1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="terminology">
+<section id="section-2">
+      <h2 id="name-terminology">
+<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-terminology" class="section-name selfRef">Terminology</a>
+    </h2>
+</section>
+</div>
+<div id="credential-types">
+<section id="section-3">
+      <h2 id="name-credential-types">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-credential-types" class="section-name selfRef">Credential Types</a>
+      </h2>
+<p id="section-3-1">The credential type schemas maintained here are exposed via Open API Specification 3.0.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-2">See the registered credential types at <a href="https://spec.rebase.org/openapi/">spec.rebase.org/openapi</a>.<a href="#section-3-2" class="pilcrow">¶</a></p>
+<div id="web-origin">
+<section id="section-3.1">
+        <h3 id="name-web-origin">
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-web-origin" class="section-name selfRef">Web Origin</a>
+      </h3>
+</section>
+</div>
+<div id="bitcoin-address">
+<section id="section-3.2">
+        <h3 id="name-bitcoin-address">
+<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-bitcoin-address" class="section-name selfRef">Bitcoin Address</a>
+      </h3>
+</section>
+</div>
+<div id="ethereum-address">
+<section id="section-3.3">
+        <h3 id="name-ethereum-address">
+<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-ethereum-address" class="section-name selfRef">Ethereum Address</a>
+      </h3>
+</section>
+</div>
+<div id="github-account">
+<section id="section-3.4">
+        <h3 id="name-github-account">
+<a href="#section-3.4" class="section-number selfRef">3.4. </a><a href="#name-github-account" class="section-name selfRef">GitHub Account</a>
+      </h3>
+</section>
+</div>
+<div id="twitter-account">
+<section id="section-3.5">
+        <h3 id="name-twitter-account">
+<a href="#section-3.5" class="section-number selfRef">3.5. </a><a href="#name-twitter-account" class="section-name selfRef">Twitter Account</a>
+      </h3>
+</section>
+</div>
+</section>
+</div>
+<div id="embeddings">
+<section id="section-4">
       <h2 id="name-embeddings">
-<a href="#section-1" class="section-number selfRef">1. </a><a href="#name-embeddings" class="section-name selfRef">Embeddings</a>
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-embeddings" class="section-name selfRef">Embeddings</a>
       </h2>
 <div id="svg">
-<section id="section-1.1">
+<section id="section-4.1">
         <h3 id="name-svg">
-<a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-svg" class="section-name selfRef">Svg</a>
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-svg" class="section-name selfRef">Svg</a>
         </h3>
 <span id="name-nyan-can-rendered-as-an-svg"></span><figure id="figure-1">
-          <div class="alignLeft art-svg artwork" id="section-1.1-1.1">
+          <div class="alignLeft art-svg artwork" id="section-4.1-1.1">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180">
               <desc>svg</desc>
               <defs>
@@ -1757,21 +1844,21 @@ li > p:last-of-type {
           </figcaption></figure>
 </section>
 </div>
-<div id="notational-conventions">
-<section id="section-1.2">
-        <h3 id="name-notational-conventions">
-<a href="#section-1.2" class="section-number selfRef">1.2. </a><a href="#name-notational-conventions" class="section-name selfRef">Notational Conventions</a>
+<div id="notational-conventions-1">
+<section id="section-4.2">
+        <h3 id="name-notational-conventions-2">
+<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-notational-conventions-2" class="section-name selfRef">Notational Conventions</a>
         </h3>
-<p id="section-1.2-1">The keywords <span class="bcp14">MUST</span>, <span class="bcp14">MUST NOT</span>, <span class="bcp14">REQUIRED</span>, <span class="bcp14">SHALL</span>, <span class="bcp14">SHALL NOT</span>, <span class="bcp14">SHOULD</span>,
+<p id="section-4.2-1">The keywords <span class="bcp14">MUST</span>, <span class="bcp14">MUST NOT</span>, <span class="bcp14">REQUIRED</span>, <span class="bcp14">SHALL</span>, <span class="bcp14">SHALL NOT</span>, <span class="bcp14">SHOULD</span>,
 <span class="bcp14">SHOULD NOT</span>, <span class="bcp14">RECOMMENDED</span>, <span class="bcp14">MAY</span>, and <span class="bcp14">OPTIONAL</span>, when they appear in this
-document, are to be interpreted as described in <span>[<a href="#RFC2119" class="xref">RFC2119</a>]</span>.<a href="#section-1.2-1" class="pilcrow">¶</a></p>
+document, are to be interpreted as described in <span>[<a href="#RFC2119" class="xref">RFC2119</a>]</span>.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
-<section id="section-2">
+<section id="section-5">
       <h2 id="name-normative-references">
-<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
       </h2>
 <dl class="references">
 <dt id="RFC2119">[RFC2119]</dt>
