@@ -11,6 +11,7 @@ rm *.xml
 mkdir ../build
 mv *.html ../build/index.html
 cp * ../build;
+cp -r openapi ../build/openapi;
 rm ../build/*.md ../build/*.sh
 
 cd ..
