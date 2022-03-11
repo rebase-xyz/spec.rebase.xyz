@@ -15,7 +15,9 @@ const contextPath = path.resolve(__dirname, "../build/contexts/v1/index.json");
     vocab: "https://w3id.org/rebase#undefined-term",
     id: "@id",
     type: "@type",
-    rootTerms: {},
+    rootTerms: {
+      sameAs: "https://schema.org/sameAs",
+    },
   });
   fs.writeFileSync(contextPath, JSON.stringify(context, null, 2));
 })();

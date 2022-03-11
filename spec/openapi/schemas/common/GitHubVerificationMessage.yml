@@ -1,0 +1,41 @@
+title: GitHub Verification Message
+description: Proof of github account control message
+$linkedData:
+  "term": "GithubVerificationMessage"
+  "@id": "https://w3id.org/rebase#GitHubVerificationMessage"
+type: object
+properties:
+  handle:
+    type: string
+    description: handle of the entity.
+    $linkedData:
+      "term": "handle"
+      "@id": "https://schema.org/name"
+  gistVersion:
+    type: string
+    description: version of the message.
+    $linkedData:
+      "term": "gistVersion"
+      "@id": "https://schema.org/version"
+  gistId:
+    type: string
+    description: id of the message.
+    $linkedData:
+      "term": "gistId"
+      "@id": "https://schema.org/url"
+  timestamp:
+    type: string
+    description: timestamp of the message.
+    $linkedData:
+      "term": "timestamp"
+      "@id": "https://schema.org/DateTime"
+example: |-
+  {
+    "type":[
+      "GitHubVerificationMessage"
+    ],
+    "handle":"{github_username}",
+    "gistVersion":"{gist_version}",
+    "gistId":"{gist_id}",
+    "timestamp":"2010-01-01T19:23:24Z"
+  }

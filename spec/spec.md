@@ -43,24 +43,19 @@ The credential type schemas maintained here are exposed via Open API Specificati
 
 See the registered credential types at [spec.rebase.org/openapi](https://spec.rebase.org/openapi/).
 
+<!-- TODO generate this section of the markdown from the openapi. -->
+
+## GitHub Account
+
+- [Schema](https://spec.rebase.org/openapi/schemas/common/GitHubVerification.yml)
+
 ## Web Origin
 
 ## Bitcoin Address
 
 ## Ethereum Address
 
-## GitHub Account
-
 ## Twitter Account
-
-# Embeddings
-
-## Svg
-
-!---
-![svg](nyancat.svg "Image1")
-!---
-Figure: Nyan can rendered as an svg.
 
 ## Notational Conventions
 

@@ -7,7 +7,7 @@ servers:
   - url: https://w3id.org/rebase/openapi
 
 paths:
-  /schemas/common/Brand.yml:
+  /schemas/common/GitHubVerification.yml:
     get:
       tags:
       - Common
@@ -16,5 +16,17 @@ paths:
           content:
             application/yml:
               schema:
-                $ref: './schemas/common/Brand.yml'
+                $ref: './schemas/common/GitHubVerification.yml'
+    
+
+  /schemas/common/GitHubVerificationMessage.yml:
+    get:
+      tags:
+      - Common
+      responses:
+        '200':
+          content:
+            application/yml:
+              schema:
+                $ref: './schemas/common/GitHubVerificationMessage.yml'
     
