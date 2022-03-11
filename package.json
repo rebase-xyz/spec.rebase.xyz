@@ -1,0 +1,28 @@
+{
+  "name": "spec.rebase.org",
+  "version": "1.0.0",
+  "description": "``` ./spec/build.sh npx serve ./build ```",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build:spec && npm run build:openapi && npm run build:context",
+    "build:spec": "./spec/build.sh",
+    "build:openapi": "node ./scripts/schemas-to-openapi.js",
+    "build:context": "node ./scripts/openapi-to-context.js",
+    "serve": "npx serve ./build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/decentralized-identity/spec.rebase.org.git"
+  },
+  "author": "Orie Steele",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/decentralized-identity/spec.rebase.org/issues"
+  },
+  "homepage": "https://github.com/decentralized-identity/spec.rebase.org#readme",
+  "devDependencies": {
+    "@transmute/jsonld-schema": "^0.7.0-unstable.54",
+    "ajv": "^8.10.0",
+    "js-yaml": "^4.1.0"
+  }
+}

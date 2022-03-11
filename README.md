@@ -1,6 +1,7 @@
 # Rebase Schemas
 
 ```
-./spec/build.sh
-npx serve ./build
+npm i
+npm run build
+npm run serve
 ```

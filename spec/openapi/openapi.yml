@@ -1,18 +1,20 @@
+
 openapi: 3.0.0
 info:
   title: Rebase Schemas
   version: 1.0.0
 servers:
-  - url: https://w3id.org/rebase/openapi/components
+  - url: https://w3id.org/rebase/openapi
 
 paths:
-  /schemas/common/WebOrigin.yml:
+  /schemas/common/Brand.yml:
     get:
       tags:
-        - Common
+      - Common
       responses:
-        "200":
+        '200':
           content:
             application/yml:
               schema:
-                $ref: "./schemas/common/WebOrigin.yml"
+                $ref: './schemas/common/Brand.yml'
+    

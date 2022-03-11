@@ -14,4 +14,6 @@ cp * ../build;
 cp -r openapi ../build/openapi;
 rm ../build/*.md ../build/*.sh
 
+mkdir -p ../build/contexts/v1
+
 cd ..
