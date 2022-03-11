@@ -37,11 +37,27 @@ document, are to be interpreted as described in [@!RFC2119].
 
 # Terminology
 
+## Open API
+
+- [spec.rebase.org/openapi](https://spec.rebase.org/openapi/)
+
+This Open API Specification 3 defines all JSON-Schema in YAML.
+
+## JSON-LD Context
+
+- [https://w3id.org/rebase/v1](https://w3id.org/rebase/v1)
+
+This is the root context for rebase, it defines all terms used by rebase.
+
+Implementations are expected to cache this json / bundle it with their apps.
+
+Implementations SHOULD NOT download this from the internet.
+
 # Credential Types
 
 The credential type schemas maintained here are exposed via Open API Specification 3.0.
 
-See the registered credential types at [spec.rebase.org/openapi](https://spec.rebase.org/openapi/).
+The links maintained below provide term definitions for all defined semantics.
 
 <!-- TODO generate this section of the markdown from the openapi. -->
 

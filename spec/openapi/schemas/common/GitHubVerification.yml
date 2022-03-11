@@ -15,7 +15,7 @@ example: |-
   {
     "@context":[
         "https://www.w3.org/2018/credentials/v1",
-        "https://spec.rebase.org/v1"
+        "https://w3id.org/rebase/v1"
     ],
     "id":"urn:uuid:{uuid_v4}",
     "type":[
