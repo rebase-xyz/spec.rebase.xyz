@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/decentralized-identity/spec.rebase.org.git"
+    "url": "git+https://github.com/rebase-xyz/spec.rebase.org.git"
   },
   "author": "Orie Steele",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/decentralized-identity/spec.rebase.org/issues"
+    "url": "https://github.com/rebase-xyz/spec.rebase.org/issues"
   },
-  "homepage": "https://github.com/decentralized-identity/spec.rebase.org#readme",
+  "homepage": "https://github.com/rebase-xyz/spec.rebase.org#readme",
   "devDependencies": {
     "@transmute/jsonld-schema": "^0.7.0-unstable.54",
     "ajv": "^8.10.0",
