@@ -4,10 +4,14 @@
 <meta charset="utf-8">
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
-<title>example spec</title>
+<title>Rebase</title>
+<meta content="Wayne Chang" name="author">
 <meta content="Orie Steele" name="author">
 <meta content="
-       This document defines a Verifiable Credential format for linked Decentralized Identifiers to existing identifiers, such as web origins, social network accounts, and crypto currency addresses. 
+       Rebase project aims to establish reputation-based Public Key Infrastructure on
+the Internet by allowing people and organizations to link their various public,
+semi-public, and private accounts to cryptographic keys at their own will,
+also ensuring privacy. 
     " name="description">
 <meta content="xml2rfc 3.12.0" name="generator">
 <meta content="example-spec-00" name="ietf.draft">
@@ -1182,11 +1186,11 @@ li > p:last-of-type {
 <table class="ears">
 <thead><tr>
 <td class="left"></td>
-<td class="center">example-spec</td>
+<td class="center">rebase</td>
 <td class="right">March 2022</td>
 </tr></thead>
 <tfoot><tr>
-<td class="left">Steele</td>
+<td class="left">Chang &amp; Steele</td>
 <td class="center">Informational</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
@@ -1196,8 +1200,12 @@ li > p:last-of-type {
 <dl id="identifiers">
 <dt class="label-workgroup">Workgroup:</dt>
 <dd class="workgroup">none</dd>
-<dt class="label-authors">Author:</dt>
+<dt class="label-authors">Authors:</dt>
 <dd class="authors">
+<div class="author">
+      <div class="author-name">W. Chang</div>
+<div class="org">Spruce</div>
+</div>
 <div class="author">
       <div class="author-name">O. Steele</div>
 <div class="org">Transmute</div>
@@ -1205,10 +1213,13 @@ li > p:last-of-type {
 </dd>
 </dl>
 </div>
-<h1 id="title">example spec</h1>
+<h1 id="title">Rebase</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">This document defines a Verifiable Credential format for linked Decentralized Identifiers to existing identifiers, such as web origins, social network accounts, and crypto currency addresses.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">Rebase project aims to establish reputation-based Public Key Infrastructure on
+the Internet by allowing people and organizations to link their various public,
+semi-public, and private accounts to cryptographic keys at their own will,
+also ensuring privacy.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <div id="toc">
 <section id="section-toc.1">
@@ -1220,44 +1231,55 @@ li > p:last-of-type {
             <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-notational-conventions" class="xref">Notational Conventions</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
-            <p id="section-toc.1-1.2.1"><a href="#section-2" class="xref">2</a>.  <a href="#name-terminology" class="xref">Terminology</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.1">
-                <p id="section-toc.1-1.2.2.1.1" class="keepWithNext"><a href="#section-2.1" class="xref">2.1</a>.  <a href="#name-open-api" class="xref">Open API</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2">
-                <p id="section-toc.1-1.2.2.2.1" class="keepWithNext"><a href="#section-2.2" class="xref">2.2</a>.  <a href="#name-json-ld-context" class="xref">JSON-LD Context</a></p>
-</li>
-            </ul>
+            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="xref">2</a>.  <a href="#name-vision" class="xref">Vision</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-credential-types" class="xref">Credential Types</a></p>
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-scope-of-work" class="xref">Scope of Work</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
-                <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="xref">3.1</a>.  <a href="#name-github-account" class="xref">GitHub Account</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
-                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="xref">3.2</a>.  <a href="#name-web-origin" class="xref">Web Origin</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
-                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="xref">3.3</a>.  <a href="#name-bitcoin-address" class="xref">Bitcoin Address</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4">
-                <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="xref">3.4</a>.  <a href="#name-ethereum-address" class="xref">Ethereum Address</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.5">
-                <p id="section-toc.1-1.3.2.5.1"><a href="#section-3.5" class="xref">3.5</a>.  <a href="#name-twitter-account" class="xref">Twitter Account</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.6">
-                <p id="section-toc.1-1.3.2.6.1"><a href="#section-3.6" class="xref">3.6</a>.  <a href="#name-notational-conventions-2" class="xref">Notational Conventions</a></p>
+                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="xref">3.1</a>.  <a href="#name-out-of-scope" class="xref">Out of Scope</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-normative-references" class="xref">Normative References</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-terminology" class="xref">Terminology</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="xref">4.1</a>.  <a href="#name-open-api" class="xref">Open API</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="xref">4.2</a>.  <a href="#name-json-ld-context" class="xref">JSON-LD Context</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#appendix-A" class="xref"></a><a href="#name-authors-address" class="xref">Author's Address</a></p>
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-credential-types" class="xref">Credential Types</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
+                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="xref">5.1</a>.  <a href="#name-github-account" class="xref">GitHub Account</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
+                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="xref">5.2</a>.  <a href="#name-web-origin" class="xref">Web Origin</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3">
+                <p id="section-toc.1-1.5.2.3.1"><a href="#section-5.3" class="xref">5.3</a>.  <a href="#name-bitcoin-address" class="xref">Bitcoin Address</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.4">
+                <p id="section-toc.1-1.5.2.4.1"><a href="#section-5.4" class="xref">5.4</a>.  <a href="#name-ethereum-address" class="xref">Ethereum Address</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.5">
+                <p id="section-toc.1-1.5.2.5.1"><a href="#section-5.5" class="xref">5.5</a>.  <a href="#name-twitter-account" class="xref">Twitter Account</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.6">
+                <p id="section-toc.1-1.5.2.6.1"><a href="#section-5.6" class="xref">5.6</a>.  <a href="#name-notational-conventions-2" class="xref">Notational Conventions</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-normative-references" class="xref">Normative References</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
+            <p id="section-toc.1-1.7.1"><a href="#appendix-A" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1273,103 +1295,160 @@ li > p:last-of-type {
 document, are to be interpreted as described in <span>[<a href="#RFC2119" class="xref">RFC2119</a>]</span>.<a href="#section-1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="terminology">
+<div id="vision">
 <section id="section-2">
-      <h2 id="name-terminology">
-<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-terminology" class="section-name selfRef">Terminology</a>
+      <h2 id="name-vision">
+<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-vision" class="section-name selfRef">Vision</a>
       </h2>
-<div id="open-api">
-<section id="section-2.1">
-        <h3 id="name-open-api">
-<a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-open-api" class="section-name selfRef">Open API</a>
-        </h3>
+<p id="section-2-1">Through community agreed-upon data schemas and verification algorithms, Rebase
+aims coordinate decentralized web-based services that allow people and
+organizations to map their identities to cryptographic keys using social media
+in a user-centric and publicly auditable way. A network of independent
+validators will inspect identity proofs hosted across a variety of social media
+platforms, such as GitHub, Twitter, Hacker News, Reddit, and BrightID.
+Validators will issue credentials to people and organizations as authenticated
+by their listed keys, verifiable using the identity proofs. As a result, users
+will enjoy increased data portability within Rebase-compatible systems, meaning
+that they can take their digital identities anywhere they want and manage them
+however they choose.<a href="#section-2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="scope-of-work">
+<section id="section-3">
+      <h2 id="name-scope-of-work">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-scope-of-work" class="section-name selfRef">Scope of Work</a>
+      </h2>
+<p id="section-3-1">This group is open to anyone interested in solving PKI for the Internet by
+making existing online reputations and user data portable.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-2">The Rebase project will:<a href="#section-3-2" class="pilcrow">¶</a></p>
 <ul class="compact">
-<li class="compact" id="section-2.1-1.1">
-            <a href="https://spec.rebase.org/openapi/">spec.rebase.org/openapi</a><a href="#section-2.1-1.1" class="pilcrow">¶</a>
+<li class="compact" id="section-3-3.1">Align on use of existing specifications and technologies towards achieving
+the vision;<a href="#section-3-3.1" class="pilcrow">¶</a>
+</li>
+        <li class="compact" id="section-3-3.2">Discuss use cases and roles within the Rebase ecosystem;<a href="#section-3-3.2" class="pilcrow">¶</a>
+</li>
+        <li class="compact" id="section-3-3.3">Discuss security and privacy implications of the work;<a href="#section-3-3.3" class="pilcrow">¶</a>
+</li>
+        <li class="compact" id="section-3-3.4">Invite additional interested parties from diverse organizations who may have
+more uses or concerns for this technology to publicly discuss their thoughts.<a href="#section-3-3.4" class="pilcrow">¶</a>
+</li>
+      </ul>
+<div id="out-of-scope">
+<section id="section-3.1">
+        <h3 id="name-out-of-scope">
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-out-of-scope" class="section-name selfRef">Out of Scope</a>
+        </h3>
+<p id="section-3.1-1">The Rebase project will not:<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="section-3.1-2.1">Sign specific vendor contracts or business deals;<a href="#section-3.1-2.1" class="pilcrow">¶</a>
+</li>
+          <li class="compact" id="section-3.1-2.2">Pursue concrete opportunities for commercial licensing;<a href="#section-3.1-2.2" class="pilcrow">¶</a>
+</li>
+          <li class="compact" id="section-3.1-2.3">Pursuing explicit marketing or business development activities from private
+companies.<a href="#section-3.1-2.3" class="pilcrow">¶</a>
 </li>
         </ul>
-<p id="section-2.1-2">This Open API Specification 3 defines all JSON-Schema in YAML.<a href="#section-2.1-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="terminology">
+<section id="section-4">
+      <h2 id="name-terminology">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-terminology" class="section-name selfRef">Terminology</a>
+      </h2>
+<div id="open-api">
+<section id="section-4.1">
+        <h3 id="name-open-api">
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-open-api" class="section-name selfRef">Open API</a>
+        </h3>
+<ul class="compact">
+<li class="compact" id="section-4.1-1.1">
+            <a href="https://spec.rebase.org/openapi/">spec.rebase.org/openapi</a><a href="#section-4.1-1.1" class="pilcrow">¶</a>
+</li>
+        </ul>
+<p id="section-4.1-2">This Open API Specification 3 defines all JSON-Schema in YAML.<a href="#section-4.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="json-ld-context">
-<section id="section-2.2">
+<section id="section-4.2">
         <h3 id="name-json-ld-context">
-<a href="#section-2.2" class="section-number selfRef">2.2. </a><a href="#name-json-ld-context" class="section-name selfRef">JSON-LD Context</a>
+<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-json-ld-context" class="section-name selfRef">JSON-LD Context</a>
         </h3>
 <ul class="compact">
-<li class="compact" id="section-2.2-1.1">
-            <a href="https://w3id.org/rebase/v1">https://w3id.org/rebase/v1</a><a href="#section-2.2-1.1" class="pilcrow">¶</a>
+<li class="compact" id="section-4.2-1.1">
+            <a href="https://w3id.org/rebase/v1">https://w3id.org/rebase/v1</a><a href="#section-4.2-1.1" class="pilcrow">¶</a>
 </li>
         </ul>
-<p id="section-2.2-2">This is the root context for rebase, it defines all terms used by rebase.<a href="#section-2.2-2" class="pilcrow">¶</a></p>
-<p id="section-2.2-3">Implementations are expected to cache this json / bundle it with their apps.<a href="#section-2.2-3" class="pilcrow">¶</a></p>
-<p id="section-2.2-4">Implementations SHOULD NOT download this from the internet.<a href="#section-2.2-4" class="pilcrow">¶</a></p>
+<p id="section-4.2-2">This is the root context for rebase, it defines all terms used by rebase.<a href="#section-4.2-2" class="pilcrow">¶</a></p>
+<p id="section-4.2-3">Implementations are expected to cache this json / bundle it with their apps.<a href="#section-4.2-3" class="pilcrow">¶</a></p>
+<p id="section-4.2-4">Implementations SHOULD NOT download this from the internet.<a href="#section-4.2-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="credential-types">
-<section id="section-3">
+<section id="section-5">
       <h2 id="name-credential-types">
-<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-credential-types" class="section-name selfRef">Credential Types</a>
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-credential-types" class="section-name selfRef">Credential Types</a>
       </h2>
-<p id="section-3-1">The credential type schemas maintained here are exposed via Open API Specification 3.0.<a href="#section-3-1" class="pilcrow">¶</a></p>
-<p id="section-3-2">The links maintained below provide term definitions for all defined semantics.<a href="#section-3-2" class="pilcrow">¶</a></p>
+<p id="section-5-1">The credential type schemas maintained here are exposed via Open API Specification 3.0.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-2">The links maintained below provide term definitions for all defined semantics.<a href="#section-5-2" class="pilcrow">¶</a></p>
 <div id="github-account">
-<section id="section-3.1">
+<section id="section-5.1">
         <h3 id="name-github-account">
-<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-github-account" class="section-name selfRef">GitHub Account</a>
+<a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-github-account" class="section-name selfRef">GitHub Account</a>
         </h3>
 <ul class="compact">
-<li class="compact" id="section-3.1-1.1">
-            <a href="https://spec.rebase.org/openapi/schemas/common/GitHubVerification.yml">Schema</a><a href="#section-3.1-1.1" class="pilcrow">¶</a>
+<li class="compact" id="section-5.1-1.1">
+            <a href="https://spec.rebase.org/openapi/schemas/common/GitHubVerification.yml">Schema</a><a href="#section-5.1-1.1" class="pilcrow">¶</a>
 </li>
         </ul>
 </section>
 </div>
 <div id="web-origin">
-<section id="section-3.2">
+<section id="section-5.2">
         <h3 id="name-web-origin">
-<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-web-origin" class="section-name selfRef">Web Origin</a>
+<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-web-origin" class="section-name selfRef">Web Origin</a>
       </h3>
 </section>
 </div>
 <div id="bitcoin-address">
-<section id="section-3.3">
+<section id="section-5.3">
         <h3 id="name-bitcoin-address">
-<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-bitcoin-address" class="section-name selfRef">Bitcoin Address</a>
+<a href="#section-5.3" class="section-number selfRef">5.3. </a><a href="#name-bitcoin-address" class="section-name selfRef">Bitcoin Address</a>
       </h3>
 </section>
 </div>
 <div id="ethereum-address">
-<section id="section-3.4">
+<section id="section-5.4">
         <h3 id="name-ethereum-address">
-<a href="#section-3.4" class="section-number selfRef">3.4. </a><a href="#name-ethereum-address" class="section-name selfRef">Ethereum Address</a>
+<a href="#section-5.4" class="section-number selfRef">5.4. </a><a href="#name-ethereum-address" class="section-name selfRef">Ethereum Address</a>
       </h3>
 </section>
 </div>
 <div id="twitter-account">
-<section id="section-3.5">
+<section id="section-5.5">
         <h3 id="name-twitter-account">
-<a href="#section-3.5" class="section-number selfRef">3.5. </a><a href="#name-twitter-account" class="section-name selfRef">Twitter Account</a>
+<a href="#section-5.5" class="section-number selfRef">5.5. </a><a href="#name-twitter-account" class="section-name selfRef">Twitter Account</a>
       </h3>
 </section>
 </div>
 <div id="notational-conventions-1">
-<section id="section-3.6">
+<section id="section-5.6">
         <h3 id="name-notational-conventions-2">
-<a href="#section-3.6" class="section-number selfRef">3.6. </a><a href="#name-notational-conventions-2" class="section-name selfRef">Notational Conventions</a>
+<a href="#section-5.6" class="section-number selfRef">5.6. </a><a href="#name-notational-conventions-2" class="section-name selfRef">Notational Conventions</a>
         </h3>
-<p id="section-3.6-1">The keywords <span class="bcp14">MUST</span>, <span class="bcp14">MUST NOT</span>, <span class="bcp14">REQUIRED</span>, <span class="bcp14">SHALL</span>, <span class="bcp14">SHALL NOT</span>, <span class="bcp14">SHOULD</span>,
+<p id="section-5.6-1">The keywords <span class="bcp14">MUST</span>, <span class="bcp14">MUST NOT</span>, <span class="bcp14">REQUIRED</span>, <span class="bcp14">SHALL</span>, <span class="bcp14">SHALL NOT</span>, <span class="bcp14">SHOULD</span>,
 <span class="bcp14">SHOULD NOT</span>, <span class="bcp14">RECOMMENDED</span>, <span class="bcp14">MAY</span>, and <span class="bcp14">OPTIONAL</span>, when they appear in this
-document, are to be interpreted as described in <span>[<a href="#RFC2119" class="xref">RFC2119</a>]</span>.<a href="#section-3.6-1" class="pilcrow">¶</a></p>
+document, are to be interpreted as described in <span>[<a href="#RFC2119" class="xref">RFC2119</a>]</span>.<a href="#section-5.6-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
-<section id="section-4">
+<section id="section-6">
       <h2 id="name-normative-references">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
       </h2>
 <dl class="references">
 <dt id="RFC2119">[RFC2119]</dt>
@@ -1380,9 +1459,17 @@ document, are to be interpreted as described in <span>[<a href="#RFC2119" class=
 </section>
 <div id="authors-addresses">
 <section id="appendix-A">
-      <h2 id="name-authors-address">
-<a href="#name-authors-address" class="section-name selfRef">Author's Address</a>
+      <h2 id="name-authors-addresses">
+<a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
       </h2>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Wayne Chang</span></div>
+<div dir="auto" class="left"><span class="org">Spruce</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:wayne@spruceid.com" class="email">wayne@spruceid.com</a>
+</div>
+</address>
 <address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Orie Steele</span></div>
 <div dir="auto" class="left"><span class="org">Transmute</span></div>
