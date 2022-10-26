@@ -1,0 +1,27 @@
+title: Reddit Verification Message
+description: Proof of Reddit account control message
+$linkedData:
+  "term": "RedditVerificationMessage"
+  "@id": "https://w3id.org/rebase#RedditVerificationMessage"
+type: object
+properties:
+  handle:
+    type: string
+    description: handle of the entity.
+    $linkedData:
+      "term": "handle"
+      "@id": "https://schema.org/name"
+  timestamp:
+    type: string
+    description: ISO8601 timestamp of the reddit profile lookup by the witness.
+    $linkedData:
+      "term": "timestamp"
+      "@id": "https://schema.org/DateTime"
+example: |-
+  {
+    "type":[
+      "RedditVerificationMessage"
+    ],
+    "handle":"{handle}",
+    "timestamp":"{timestamp}"
+  }
