@@ -1,0 +1,27 @@
+title: DNS Verification Message
+description: Proof of Domain control message
+$linkedData: 
+  "term": "DnsVerificationMessage"
+  "@id": "https://w3id.org/rebase#DnsVerificationMessage"
+type: object
+properties: 
+  dnsServer:
+    type: string
+    description: url of domain server used in witness lookup
+    $linkedData: 
+      "term": "dnsServer"
+      "@id": "https://schema.org/url"
+  timestamp:
+    type: string
+    description: ISO8601 timestamp of the DNS text record lookup by the witness.
+    $linkedData:
+      "term": "timestamp"
+      "@id": "https://schema.org/DateTime"
+example: |-
+  {
+    "type":[
+      "DnsVerificationMessage"
+    ],
+    "dnsServer":{dnsServer},
+    "timestamp":"{timestamp}"
+  }

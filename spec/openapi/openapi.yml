@@ -7,6 +7,54 @@ servers:
   - url: https://w3id.org/rebase/openapi
 
 paths:
+  /schemas/common/DnsVerification.yml:
+    get:
+      tags:
+      - Common
+      responses:
+        '200':
+          content:
+            application/yml:
+              schema:
+                $ref: './schemas/common/DnsVerification.yml'
+    
+
+  /schemas/common/DnsVerificationMessage.yml:
+    get:
+      tags:
+      - Common
+      responses:
+        '200':
+          content:
+            application/yml:
+              schema:
+                $ref: './schemas/common/DnsVerificationMessage.yml'
+    
+
+  /schemas/common/EmailVerification.yml:
+    get:
+      tags:
+      - Common
+      responses:
+        '200':
+          content:
+            application/yml:
+              schema:
+                $ref: './schemas/common/EmailVerification.yml'
+    
+
+  /schemas/common/EmailVerificationMessage.yml:
+    get:
+      tags:
+      - Common
+      responses:
+        '200':
+          content:
+            application/yml:
+              schema:
+                $ref: './schemas/common/EmailVerificationMessage.yml'
+    
+
   /schemas/common/GitHubVerification.yml:
     get:
       tags:
@@ -29,4 +77,99 @@ paths:
             application/yml:
               schema:
                 $ref: './schemas/common/GitHubVerificationMessage.yml'
+    
+
+  /schemas/common/RedditVerification.yml:
+    get:
+      tags:
+      - Common
+      responses:
+        '200':
+          content:
+            application/yml:
+              schema:
+                $ref: './schemas/common/RedditVerification.yml'
+    
+
+  /schemas/common/RedditVerificationMessage.yml:
+    get:
+      tags:
+      - Common
+      responses:
+        '200':
+          content:
+            application/yml:
+              schema:
+                $ref: './schemas/common/RedditVerificationMessage.yml'
+    
+  /schemas/common/SameControllerAssertion.yml:
+    get:
+      tags:
+      - Common
+      responses:
+        '200':
+          content:
+            application/yml:
+              schema:
+                $ref: './schemas/common/SameControllerAssertion.yml'
+    
+
+  /schemas/common/SameControllerEvidence.yml:
+    get:
+      tags:
+      - Common
+      responses:
+        '200':
+          content:
+            application/yml:
+              schema:
+                $ref: './schemas/common/SameControllerEvidence.yml'
+   
+
+  /schemas/common/SoundCloudVerification.yml:
+    get:
+      tags:
+      - Common
+      responses:
+        '200':
+          content:
+            application/yml:
+              schema:
+                $ref: './schemas/common/SoundCloudVerification.yml'
+    
+
+  /schemas/common/SoundCloudVerificationMessage.yml:
+    get:
+      tags:
+      - Common
+      responses:
+        '200':
+          content:
+            application/yml:
+              schema:
+                $ref: './schemas/common/SoundCloudVerificationMessage.yml'
+    
+
+  /schemas/common/TwitterVerification.yml:
+    get:
+      tags:
+      - Common
+      responses:
+        '200':
+          content:
+            application/yml:
+              schema:
+                $ref: './schemas/common/TwitterVerification.yml'
+    
+
+  /schemas/common/TwitterVerificationPublicTweet.yml:
+    get:
+      tags:
+      - Common
+      responses:
+        '200':
+          content:
+            application/yml:
+              schema:
+                $ref: './schemas/common/TwitterVerificationPublicTweet.yml'
     
