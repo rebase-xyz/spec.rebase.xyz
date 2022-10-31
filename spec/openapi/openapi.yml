@@ -17,6 +17,7 @@ paths:
             application/yml:
               schema:
                 $ref: './schemas/common/DnsVerification.yml'
+    
 
   /schemas/common/DnsVerificationMessage.yml:
     get:
@@ -28,6 +29,7 @@ paths:
             application/yml:
               schema:
                 $ref: './schemas/common/DnsVerificationMessage.yml'
+    
 
   /schemas/common/EmailVerification.yml:
     get:
@@ -39,6 +41,7 @@ paths:
             application/yml:
               schema:
                 $ref: './schemas/common/EmailVerification.yml'
+    
 
   /schemas/common/EmailVerificationMessage.yml:
     get:
@@ -50,6 +53,7 @@ paths:
             application/yml:
               schema:
                 $ref: './schemas/common/EmailVerificationMessage.yml'
+    
 
   /schemas/common/GitHubVerification.yml:
     get:
@@ -61,6 +65,7 @@ paths:
             application/yml:
               schema:
                 $ref: './schemas/common/GitHubVerification.yml'
+    
 
   /schemas/common/GitHubVerificationMessage.yml:
     get:
@@ -73,6 +78,7 @@ paths:
               schema:
                 $ref: './schemas/common/GitHubVerificationMessage.yml'
     
+
   /schemas/common/RedditVerification.yml:
     get:
       tags:
@@ -83,6 +89,7 @@ paths:
             application/yml:
               schema:
                 $ref: './schemas/common/RedditVerification.yml'
+    
 
   /schemas/common/RedditVerificationMessage.yml:
     get:
@@ -95,28 +102,6 @@ paths:
               schema:
                 $ref: './schemas/common/RedditVerificationMessage.yml'
     
-    
-  # /schemas/common/SelfSignedVerification.yml:
-  #   get:
-  #     tags:
-  #     - Common
-  #     responses:
-  #       '200':
-  #         content:
-  #           application/yml:
-  #             schema:
-  #               $ref: './schemas/common/SelfSignedVerification.yml'
-
-  # /schemas/common/SelfSignedVerificationMessage.yml:
-  #   get:
-  #     tags:
-  #     - Common
-  #     responses:
-  #       '200':
-  #         content:
-  #           application/yml:
-  #             schema:
-  #               $ref: './schemas/common/SelfSignedVerificationMessage.yml'
 
   /schemas/common/SoundCloudVerification.yml:
     get:
@@ -128,6 +113,7 @@ paths:
             application/yml:
               schema:
                 $ref: './schemas/common/SoundCloudVerification.yml'
+    
 
   /schemas/common/SoundCloudVerificationMessage.yml:
     get:
@@ -139,6 +125,7 @@ paths:
             application/yml:
               schema:
                 $ref: './schemas/common/SoundCloudVerificationMessage.yml'
+    
 
   /schemas/common/TwitterVerification.yml:
     get:
@@ -150,6 +137,7 @@ paths:
             application/yml:
               schema:
                 $ref: './schemas/common/TwitterVerification.yml'
+    
 
   /schemas/common/TwitterVerificationPublicTweet.yml:
     get:
@@ -161,3 +149,4 @@ paths:
             application/yml:
               schema:
                 $ref: './schemas/common/TwitterVerificationPublicTweet.yml'
+    
