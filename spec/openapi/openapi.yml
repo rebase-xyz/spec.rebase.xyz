@@ -65,7 +65,6 @@ paths:
             application/yml:
               schema:
                 $ref: './schemas/common/GitHubVerification.yml'
-    
 
   /schemas/common/GitHubVerificationMessage.yml:
     get:
@@ -78,7 +77,6 @@ paths:
               schema:
                 $ref: './schemas/common/GitHubVerificationMessage.yml'
     
-
   /schemas/common/RedditVerification.yml:
     get:
       tags:
