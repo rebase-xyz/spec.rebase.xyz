@@ -9,7 +9,7 @@ properties:
     type: string
     description: email address of the entity.
     $linkedData:
-      "term": "handle"
+      "term": "email"
       "@id": "https://schema.org/email"
   timestamp:
     type: string

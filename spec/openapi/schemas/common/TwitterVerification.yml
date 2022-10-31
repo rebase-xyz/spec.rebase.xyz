@@ -1,0 +1,39 @@
+title: Twitter Verification
+description: Proof of Twitter account control.
+$linkedData:
+  "term": "TwitterVerification"
+  "@id": "https://w3id.org/rebase#TwitterVerification"
+type: object
+# TODO: inherit from a base credential schema
+# consider not requiring proof for interop with vc-jwt.
+properties:
+  evidence:
+    type: object
+    description: evidence of the account control.
+    $ref: "./TwitterVerificationPublicTweet.yml"
+example: |-
+  {
+    "@context":[
+      "https://www.w3.org/2018/credentials/v1",
+      "https://w3id.org/rebase/v1"
+    ],
+    "id":"urn:uuid:{uuid_v4}",
+    "type":[
+      "VerifiableCredential",
+      "TwitterVerification"
+    ],
+    "issuer":"did:...",
+    "issuanceDate": "{ISO8601 format timestamp string}",
+    "credentialSubject":{
+      "id":"did:...",
+      "sameAs":"https://twitter.com/user/{handle}"
+    },
+    "evidence":{
+      "type":[
+        "TwitterVerificationPublicTweet"
+      ],
+      "handle": "{handle}",
+      "tweetId": "{tweetId}",
+      "timestamp": "{timestamp}"
+    }
+  }
