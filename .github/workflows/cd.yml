@@ -12,8 +12,19 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 16.x
-      - name: Install
+      - name: Install Node Package
         run: npm i
+
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          
+      - name: Install TreeLDR
+        run: |
+          git clone https://github.com/spruceid/treeldr.git
+          cd treeldr
+          cargo install --path tldrc
 
       - name: Build Spec
         run: npm run build

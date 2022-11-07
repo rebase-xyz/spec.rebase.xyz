@@ -1,0 +1,85 @@
+// GitHub Verification workflow.
+base <https://w3id.org/rebase>;
+
+use <http://www.w3.org/1999/02/22-rdf-syntax-ns#> as rdf;
+use <http://www.w3.org/2000/01/rdf-schema#> as rdfs;
+use <https://treeldr.org/> as tldr;
+use <http://www.w3.org/ns/odrl/2/> as odrl;
+use <https://www.w3.org/2018/credentials#> as cred;
+use <https://schema.org/> as schema;
+use <https://w3id.org/rebase#> as rebase;
+
+/// Resource.
+layout rebase:Resource for rdfs:Resource {
+	tldr:self as id: required &rdfs:Resource,
+	schema:sameAs: &rdfs:Resource
+}
+
+/// JSON-LD Frame for Verifiable Credential.
+layout rebase:Credential for cred:VerifiableCredential {
+	/// Identifier of the credential.
+	tldr:self as id: &rdfs:Resource,
+
+	/// Type of the credential.
+	rdf:type as type: required single multiple &rdfs:Class,
+
+	cred:credentialSubject: required single multiple rebase:CredentialSubject,
+	// cred:issuer: rebase:Issuer,
+	// cred:issuanceDate: required tldr:DateTime,
+	// cred:proof: multiple rebase:Proof,
+	// cred:expirationDate: tldr:DateTime,
+	// cred:credentialStatus: rebase:Status,
+	// cred:termsOfUse: multiple rebase:TermOfUse,
+	cred:evidence: required single multiple rebase:Evidence,
+	// cred:credentialSchema: multiple rebase:Schema,
+	// cred:refreshService: multiple rebase:RefreshService,
+}
+
+layout rebase:CredentialSubject for rdfs:Resource =
+	&rdfs:Resource as Ref | rebase:Resource as Resource;
+
+// /// Proof.
+// /// 
+// /// Cryptographic proof that can be used to detect tampering
+// /// and verify the authorship of a credential or presentation.
+// layout rebase:Proof for rdfs:Resource;
+
+// /// Terms of Use.
+// /// 
+// /// Tells the verifier what actions
+// /// it is required to perform (an obligation), not allowed to perform
+// /// (a prohibition), or allowed to perform (a permission) if it is to accept
+// /// the verifiable credential or verifiable presentation.
+// layout rebase:TermOfUse for odrl:Policy;
+
+/// Evidence.
+/// 
+/// Evidence schemes providing enough information for a verifier
+/// to determine whether the evidence gathered by the issuer meets its
+/// confidence requirements for relying on the credential.
+layout rebase:Evidence for rdfs:Resource =
+	&rdfs:Resource as Ref | rebase:Resource as Resource;
+
+// /// Status.
+// layout rebase:Status for rdfs:Resource;
+
+// /// Data Schema.
+// /// 
+// /// Provides verifiers with enough information
+// /// to determine if the provided data conforms to the provided schema.
+// layout rebase:Schema for rdfs:Resource;
+
+// /// Refreshing.
+// /// 
+// /// Provides enough information to the
+// /// recipient's software such that the recipient can refresh the verifiable
+// /// credential.
+// layout rebase:RefreshService for rdfs:Resource;
+
+// /// Issuer.
+// /// 
+// /// It is RECOMMENDED that the URI in the issuer or its id be one which,
+// /// if dereferenced, results in a document containing machine-readable
+// /// information about the issuer that can be used to verify the information
+// /// expressed in the credential.
+// layout rebase:Issuer for rdfs:Resource = tldr:URI | rdfs:Resource as Object;
