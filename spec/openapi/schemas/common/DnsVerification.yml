@@ -1,0 +1,37 @@
+title: DNS Verification
+description: Proof of domain ownership
+$linkedData:
+  "term": "DnsVerification"
+  "@id": "https://w3id.org/rebase#DnsVerification"
+type: object
+# NOTE: If we need to inherit from a base credential, probably will do it here.
+properties:
+  evidence:
+    type: object
+    description: evidence of domain control
+    $ref: "./DnsVerificationMessage.yml"
+example: |-
+  {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://w3id.org/rebase/v1"
+    ],
+    "id": "urn:uuid:{uuid_v4}",
+    "type": [
+      "VerifiableCredential",
+      "DnsVericiation"
+    ],
+    "issuer": "did:..."
+    "issuanceDate": "{ISO8601 format timestamp string}"
+    "credentialSubject": {
+      "id": "did:...",
+      "sameAs": "dns:{domain}"
+    }, 
+    "evidence": {
+      "type": [
+        "DnsVerificationMessage"
+      ],
+      "timestamp": "{timestamp}",
+      "dnsServer": "{dnsServer}"
+    }
+  }

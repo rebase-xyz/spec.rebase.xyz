@@ -1,0 +1,27 @@
+title: Email Verification Message
+description: Proof of Email account control message
+$linkedData:
+  "term": "EmailVerificationMessage"
+  "@id": "https://w3id.org/rebase#EmailVerificationMessage"
+type: object
+properties:
+  email:
+    type: string
+    description: email address of the entity.
+    $linkedData:
+      "term": "email"
+      "@id": "https://schema.org/email"
+  timestamp:
+    type: string
+    description: ISO8601 timestamp of the e-mail verifcation flow completion seen by the witness.
+    $linkedData:
+      "term": "timestamp"
+      "@id": "https://schema.org/DateTime"
+example: |-
+  {
+    "type":[
+      "EmailVerificationMessage"
+    ],
+    "email":"{email}",
+    "timestamp":"{timestamp}"
+  }
