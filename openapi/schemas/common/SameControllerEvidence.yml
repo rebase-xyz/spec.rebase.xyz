@@ -1,0 +1,34 @@
+title: Same Controller Evidence
+description: Proof of shared control of two subjects
+$linkedData: 
+  "term": "SameControllerEvidence"
+  "@id": "https://w3id.org/rebase#SameControllerEvidence"
+type: object
+properties: 
+  signature1:
+    type: string
+    description: signature of statement by id1
+    $linkedData: 
+      "term": "signature1"
+      "@id": "https://schema.org/text"
+  signature2:
+    type: string
+    description: signature of statement by id2
+    $linkedData: 
+      "term": "signature2"
+      "@id": "https://schema.org/text"
+  statement:
+    type: string
+    description: a plain-text assertion that id1 and id2 are controlled by the same entity
+    $linkedData: 
+      "term": "statement"
+      "@id": "https://schema.org/text"
+
+example: |-
+  {
+    "type":[
+      "DnsVerificationMessage"
+    ],
+    "dnsServer":{dnsServer},
+    "timestamp":"{timestamp}"
+  }

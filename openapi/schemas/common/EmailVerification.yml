@@ -1,16 +1,16 @@
-title: GitHub Verification
-description: Proof of GitHub account control.
+title: Email Verification
+description: Proof of email address control.
 $linkedData:
-  "term": "GitHubVerification"
-  "@id": "https://w3id.org/rebase#GitHubVerification"
+  "term": "EmailVerification"
+  "@id": "https://w3id.org/rebase#EmailVerification"
 type: object
-# TODO: inherit from a base credential schema
+# TODO: inherit from a base credential schema?
 # consider not requiring proof for interop with vc-jwt.
 properties:
   evidence:
     type: object
-    description: evidence of the account control.
-    $ref: "./GitHubVerificationMessage.yml"
+    description: evidence of email address control.
+    $ref: "./EmailVerificationMessage.yml"
 example: |-
   {
     "@context":[
@@ -20,20 +20,19 @@ example: |-
     "id":"urn:uuid:{uuid_v4}",
     "type":[
       "VerifiableCredential",
-      "GitHubVerification"
+      "EmailVerification"
     ],
     "issuer":"did:...",
     "issuanceDate": "{ISO8601 format timestamp string}",
     "credentialSubject":{
       "id":"did:...",
-      "sameAs":"https://github.com/{handle}"
+      "sameAs":"{email}"
     },
     "evidence":{
       "type":[
-        "GitHubVerificationMessage"
+        "EmailVerificationMessage"
       ],
-      "handle":"{handle}",
-      "gistId":"{gistId}",
+      "email":"{email}",
       "timestamp":"{timestamp}"
     }
   }

@@ -5,24 +5,117 @@
     "id": "@id",
     "type": "@type",
     "sameAs": "https://schema.org/sameAs",
+    "DnsVerification": {
+      "@id": "https://w3id.org/rebase#DnsVerification",
+      "@context": {}
+    },
+    "DnsVerificationMessage": {
+      "@id": "https://w3id.org/rebase#DnsVerificationMessage",
+      "@context": {
+        "dnsServer": {
+          "@id": "https://schema.org/url"
+        },
+        "timestamp": {
+          "@id": "https://schema.org/DateTime"
+        }
+      }
+    },
+    "EmailVerification": {
+      "@id": "https://w3id.org/rebase#EmailVerification",
+      "@context": {}
+    },
+    "EmailVerificationMessage": {
+      "@id": "https://w3id.org/rebase#EmailVerificationMessage",
+      "@context": {
+        "email": {
+          "@id": "https://schema.org/email"
+        },
+        "timestamp": {
+          "@id": "https://schema.org/DateTime"
+        }
+      }
+    },
     "GitHubVerification": {
       "@id": "https://w3id.org/rebase#GitHubVerification",
       "@context": {}
     },
-    "GithubVerificationMessage": {
+    "GitHubVerificationMessage": {
       "@id": "https://w3id.org/rebase#GitHubVerificationMessage",
       "@context": {
         "handle": {
           "@id": "https://schema.org/name"
         },
-        "gistVersion": {
-          "@id": "https://schema.org/version"
-        },
         "gistId": {
-          "@id": "https://schema.org/url"
+          "@id": "https://schema.org/identifier"
         },
         "timestamp": {
           "@id": "https://schema.org/DateTime"
+        }
+      }
+    },
+    "RedditVerification": {
+      "@id": "https://w3id.org/rebase#RedditVerification",
+      "@context": {}
+    },
+    "RedditVerificationMessage": {
+      "@id": "https://w3id.org/rebase#RedditVerificationMessage",
+      "@context": {
+        "handle": {
+          "@id": "https://schema.org/name"
+        },
+        "timestamp": {
+          "@id": "https://schema.org/DateTime"
+        }
+      }
+    },
+    "SameControllerAssertion": {
+      "@id": "https://w3id.org/rebase#SameControllerAssertion",
+      "@context": {}
+    },
+    "SameControllerEvidence": {
+      "@id": "https://w3id.org/rebase#SameControllerEvidence",
+      "@context": {
+        "signature1": {
+          "@id": "https://schema.org/text"
+        },
+        "signature2": {
+          "@id": "https://schema.org/text"
+        },
+        "statement": {
+          "@id": "https://schema.org/text"
+        }
+      }
+    },
+    "SoundCloudVerification": {
+      "@id": "https://w3id.org/rebase#SoundCloudVerification",
+      "@context": {}
+    },
+    "SoundCloudVerificationMessage": {
+      "@id": "https://w3id.org/rebase#SoundCloudVerificationMessage",
+      "@context": {
+        "permalink": {
+          "@id": "https://schema.org/Text"
+        },
+        "timestamp": {
+          "@id": "https://schema.org/DateTime"
+        }
+      }
+    },
+    "TwitterVerification": {
+      "@id": "https://w3id.org/rebase#TwitterVerification",
+      "@context": {}
+    },
+    "TwitterVerificationPublicTweet": {
+      "@id": "https://w3id.org/rebase#TwitterVerificationPublicTweet",
+      "@context": {
+        "handle": {
+          "@id": "https://schema.org/name"
+        },
+        "timestamp": {
+          "@id": "https://schema.org/DateTime"
+        },
+        "tweetId": {
+          "@id": "https://schema.org/identifier"
         }
       }
     }
