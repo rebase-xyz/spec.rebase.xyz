@@ -102,6 +102,7 @@ paths:
               schema:
                 $ref: './schemas/common/RedditVerificationMessage.yml'
     
+
   /schemas/common/SameControllerAssertion.yml:
     get:
       tags:
@@ -172,8 +173,4 @@ paths:
             application/yml:
               schema:
                 $ref: './schemas/common/TwitterVerificationPublicTweet.yml'
-<<<<<<< HEAD
     
-=======
-    
->>>>>>> e5ce9d4 (Adds build result)
