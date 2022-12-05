@@ -71,13 +71,8 @@ type rebase:RedditVerificationMessage {
 /// }
 /// ```
 type rebase:RedditVerification = (vc:VerifiableCredential with rebase:Credential) &
-	all vc:credentialSubject: (rdfs:Resource with rebase:RedditVerificationCredentialSubjectRef); // &
-	// all vc:evidence: rebase:RedditVerificationMessage;
+	all vc:credentialSubject: (rdfs:Resource with rebase:OwnershipCredentialSubject) &
+	all vc:evidence: (rebase:RedditVerificationMessage with rebase:RedditVerificationEvidence);
 
-layout rebase:RedditVerificationCredentialSubjectRef for rdfs:Resource =
-	&rdfs:Resource as Ref | rebase:RedditVerificationCredentialSubject as Resource;
-
-layout rebase:RedditVerificationCredentialSubject for rdfs:Resource {
-	tldr:self as id: required &rdfs:Resource,
-	schema:sameAs: &rdfs:Resource
-}
+layout rebase:RedditVerificationEvidence for rdfs:Resource =
+	&rebase:RedditVerificationMessage as Ref | rebase:RedditVerificationMessage as Resource;

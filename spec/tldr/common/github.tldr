@@ -81,13 +81,8 @@ type rebase:GitHubVerificationMessage {
 /// }
 /// ```
 type rebase:GitHubVerification = (vc:VerifiableCredential with rebase:Credential) &
-	all vc:credentialSubject: (rdfs:Resource with rebase:GitHubVerificationCredentialSubjectRef); // &
-	// all vc:evidence: rebase:GitHubVerificationMessage;
+	all vc:credentialSubject: (rdfs:Resource with rebase:OwnershipCredentialSubject) &
+	all vc:evidence: (rebase:GitHubVerificationMessage with rebase:GitHubVerificationEvidence);
 
-layout rebase:GitHubVerificationCredentialSubjectRef for rdfs:Resource =
-	&rdfs:Resource as Ref | rebase:GitHubVerificationCredentialSubject as Resource;
-
-layout rebase:GitHubVerificationCredentialSubject for rdfs:Resource {
-	tldr:self as id: required &rdfs:Resource,
-	schema:sameAs: &rdfs:Resource
-}
+layout rebase:GitHubVerificationEvidence for rdfs:Resource =
+	&rebase:GitHubVerificationMessage as Ref | rebase:GitHubVerificationMessage as Resource;

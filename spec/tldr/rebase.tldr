@@ -9,12 +9,6 @@ use <https://www.w3.org/2018/credentials#> as cred;
 use <https://schema.org/> as schema;
 use <https://w3id.org/rebase#> as rebase;
 
-/// Resource.
-layout rebase:Resource for rdfs:Resource {
-	tldr:self as id: required &rdfs:Resource,
-	schema:sameAs: &rdfs:Resource
-}
-
 /// JSON-LD Frame for Verifiable Credential.
 layout rebase:Credential for cred:VerifiableCredential {
 	/// Identifier of the credential.
@@ -35,8 +29,21 @@ layout rebase:Credential for cred:VerifiableCredential {
 	// cred:refreshService: multiple rebase:RefreshService,
 }
 
+/// Credential subject layout.
+/// 
+/// Either a resource or a reference to a resource.
 layout rebase:CredentialSubject for rdfs:Resource =
-	&rdfs:Resource as Ref | rebase:Resource as Resource;
+	&rdfs:Resource as Ref | rdfs:Resource as Resource;
+
+/// Credential subject layout for declaring the ownership of a resource.
+layout rebase:OwnershipCredentialSubject for rdfs:Resource =
+	&rdfs:Resource as Ref | rebase:OwnershipDeclaration as Resource;
+
+/// Ownership declaration.
+layout rebase:OwnershipDeclaration for rdfs:Resource {
+	tldr:self as id: required &rdfs:Resource,
+	schema:sameAs: &rdfs:Resource
+}
 
 // /// Proof.
 // /// 
@@ -58,7 +65,7 @@ layout rebase:CredentialSubject for rdfs:Resource =
 /// to determine whether the evidence gathered by the issuer meets its
 /// confidence requirements for relying on the credential.
 layout rebase:Evidence for rdfs:Resource =
-	&rdfs:Resource as Ref | rebase:Resource as Resource;
+	&rdfs:Resource as Ref | rdfs:Resource as Resource;
 
 // /// Status.
 // layout rebase:Status for rdfs:Resource;

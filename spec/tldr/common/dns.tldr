@@ -71,13 +71,8 @@ type rebase:DnsVerificationMessage {
 /// }
 /// ```
 type rebase:DnsVerification = (vc:VerifiableCredential with rebase:Credential) &
-	all vc:credentialSubject: (rdfs:Resource with rebase:DnsVerificationCredentialSubjectRef); // &
-	// all vc:evidence: rebase:DnsVerificationMessage;
+	all vc:credentialSubject: (rdfs:Resource with rebase:OwnershipCredentialSubject) &
+	all vc:evidence: (rebase:DnsVerificationMessage with rebase:DnsVerificationEvidence);
 
-layout rebase:DnsVerificationCredentialSubjectRef for rdfs:Resource =
-	&rdfs:Resource as Ref | rebase:DnsVerificationCredentialSubject as Resource;
-
-layout rebase:DnsVerificationCredentialSubject for rdfs:Resource {
-	tldr:self as id: required &rdfs:Resource,
-	schema:sameAs: &rdfs:Resource
-}
+layout rebase:DnsVerificationEvidence for rdfs:Resource =
+	&rebase:DnsVerificationMessage as Ref | rebase:DnsVerificationMessage as Resource;

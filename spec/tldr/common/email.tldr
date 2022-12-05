@@ -71,13 +71,8 @@ type rebase:EmailVerificationMessage {
 /// }
 /// ```
 type rebase:EmailVerification = (vc:VerifiableCredential with rebase:Credential) &
-	all vc:credentialSubject: (rdfs:Resource with rebase:EmailVerificationCredentialSubjectRef); // &
-	// all vc:evidence: rebase:EmailVerificationMessage;
+	all vc:credentialSubject: (rdfs:Resource with rebase:OwnershipCredentialSubject) &
+	all vc:evidence: (rebase:EmailVerificationMessage with rebase:EmailVerificationEvidence);
 
-layout rebase:EmailVerificationCredentialSubjectRef for rdfs:Resource =
-	&rdfs:Resource as Ref | rebase:EmailVerificationCredentialSubject as Resource;
-
-layout rebase:EmailVerificationCredentialSubject for rdfs:Resource {
-	tldr:self as id: required &rdfs:Resource,
-	schema:sameAs: &rdfs:Resource
-}
+layout rebase:EmailVerificationEvidence for rdfs:Resource =
+	&rebase:EmailVerificationMessage as Ref | rebase:EmailVerificationMessage as Resource;
