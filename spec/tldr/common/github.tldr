@@ -43,7 +43,7 @@ type rebase:GitHubVerificationMessage {
 	schema:url as gistId: schema:URL,
 	
 	/// Timestamp of the message.
-	timestamp: schema:DateTime
+	schema:temporal as timestamp: schema:DateTime
 }
 
 /// GitHub Verification.
