@@ -32,7 +32,7 @@ type rebase:SoundCloudVerificationMessage {
 	rdf:type as type: required single multiple &rdfs:Class,
 
 	/// Permalink of the entity's SoundCloud account.
-	permalink: schema:Text,
+	schema:identifier as permalink: schema:Text,
 	
 	/// ISO8601 timestamp of the e-mail verification flow completion seen by the witness.
 	schema:temporal as timestamp: schema:DateTime

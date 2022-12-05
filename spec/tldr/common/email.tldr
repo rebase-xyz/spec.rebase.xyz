@@ -32,7 +32,7 @@ type rebase:EmailVerificationMessage {
 	rdf:type as type: required single multiple &rdfs:Class,
 
 	/// Email address of the entity.
-	schema:email: schema:URL,
+	schema:email: schema:Text,
 	
 	/// ISO8601 timestamp of the e-mail verification flow completion seen by the witness.
 	schema:temporal as timestamp: schema:DateTime

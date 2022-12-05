@@ -1,0 +1,87 @@
+// Sets the base IRI of the document.
+base <https://w3id.org/rebase>;
+
+// Declare some IRI prefixes.
+use <http://www.w3.org/1999/02/22-rdf-syntax-ns#> as rdf;
+use <http://www.w3.org/2000/01/rdf-schema#> as rdfs;
+use <http://www.w3.org/2001/XMLSchema#> as xs;
+use <https://schema.org/> as schema;
+use <https://treeldr.org/> as tldr;
+use <https://www.w3.org/2018/credentials#> as vc;
+use <https://w3id.org/rebase#> as rebase;
+
+/// Same Controller Assertion.
+///
+/// Proof of ownership over two subjects.
+/// 
+/// # Example
+/// 
+/// ```json
+/// {
+///   "@context":[
+///     "https://www.w3.org/2018/credentials/v1",
+///     "https://w3id.org/rebase/v1"
+///   ],
+///   "id":"urn:uuid:{uuid_v4}",
+///   "type":[
+///     "VerifiableCredential",
+///     "SameControllerAssertion"
+///   ],
+///   "issuer":"did:...",
+///   "issuanceDate": "{ISO8601 format timestamp string}",
+///   "credentialSubject":{
+///     "id":"did:...",
+///     "sameAs":"https://soundcloud.com/{permalink}"
+///   },
+///   "evidence":{
+///     "type":[
+///       "SameControllerEvidence"
+///     ],
+///     "permalink": "{permalink}",
+///     "timestamp":"{timestamp}"
+///   }
+/// }
+/// ```
+type rebase:SameControllerAssertion = (vc:VerifiableCredential with rebase:Credential) &
+	all vc:credentialSubject: (rdfs:Resource with rebase:SameControllerSubject) &
+	all vc:evidence: rebase:SameControllerEvidence;
+
+/// Same Controller Subject.
+/// 
+/// Credential subject of a same controller assertion.
+layout rebase:SameControllerSubject for rdfs:Resource {
+	/// First identifier.
+	tldr:self as id1: &rdfs:Resource,
+
+	/// Second identifier.
+	schema:sameAs as id2: &rdfs:Resource
+}
+
+/// Same Controller Evidence.
+/// 
+/// Proof of shared control of two subjects.
+/// 
+/// # Example
+/// ```json
+/// {
+///   "type":[
+///     "SameControllerEvidence"
+///   ],
+///   "permalink":"{permalink}",
+///   "timestamp":"{timestamp}"
+/// }
+/// ```
+type rebase:SameControllerEvidence {
+	/// Type.
+	rdf:type as type: required single multiple &rdfs:Class,
+
+	/// Signature of statement by id1.
+	rebase:signature1: schema:Text,
+
+	/// Signature of statement by id2.
+	rebase:signature2: schema:Text,
+
+	/// a plain-text assertion that id1 and id2 are controlled by the same
+	/// entity.
+	rebase:statement: schema:Text
+}

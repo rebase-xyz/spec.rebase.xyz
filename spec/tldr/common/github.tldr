@@ -21,7 +21,6 @@ use <https://w3id.org/rebase#> as rebase;
 ///     "GitHubVerificationMessage"
 ///   ],
 ///   "handle": "{github_username}",
-///   "gistVersion": "{gist_version}",
 ///   "gistId": "{gist_id}",
 ///   "timestamp": "2010-01-01T19:23:24Z"
 /// }
@@ -35,9 +34,6 @@ type rebase:GitHubVerificationMessage {
 
 	/// Handle of the entity.
 	schema:name as handle: schema:Text,
-
-	/// Version of the message.
-	schema:version as gistVersion: schema:Text,
 
 	/// Id of the message.
 	schema:url as gistId: schema:URL,
@@ -74,7 +70,6 @@ type rebase:GitHubVerificationMessage {
 ///       "GithubVerificationMessage"
 ///     ],
 ///     "handle": "{github_username}",
-///     "gistVersion": "{gist_version}",
 ///     "gistId": "{gist_id}",
 ///     "timestamp": "2010-01-01T19:23:24Z"
 ///   }

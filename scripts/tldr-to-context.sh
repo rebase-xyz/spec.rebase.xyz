@@ -10,6 +10,7 @@ mkdir -p `dirname $1`
 tldrc \
 	-i spec/tldr/extern/schema.org.tldr \
 	-i spec/tldr/extern/odrl.tldr \
+	-i spec/tldr/extern/sec.tldr \
 	-i spec/tldr/extern/credentials.tldr \
 	-i spec/tldr/rebase.tldr \
 	-i spec/tldr/common/dns.tldr \
@@ -17,6 +18,7 @@ tldrc \
 	-i spec/tldr/common/github.tldr \
 	-i spec/tldr/common/reddit.tldr \
 	-i spec/tldr/common/soundcloud.tldr \
+	-i spec/tldr/common/same_controller.tldr \
 	-i spec/tldr/common/twitter.tldr \
 	json-ld-context --rdf-type-to-layout-name \
 	-m https://www.w3.org/=spec/extern/www.w3.org/ \
@@ -29,6 +31,8 @@ tldrc \
 	https://w3id.org/rebase#GitHubVerificationMessage \
 	https://w3id.org/rebase#RedditVerification \
 	https://w3id.org/rebase#RedditVerificationMessage \
+	https://w3id.org/rebase#SameControllerAssertion \
+	https://w3id.org/rebase#SameControllerEvidence \
 	https://w3id.org/rebase#SoundCloudVerification \
 	https://w3id.org/rebase#SoundCloudVerificationMessage \
 	https://w3id.org/rebase#TwitterVerification \
