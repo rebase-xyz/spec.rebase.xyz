@@ -18,8 +18,10 @@ jobs:
       - name: Install Rust
         uses: actions-rs/toolchain@v1
         with:
+          toolchain: stable
           profile: minimal
-          
+          override: true
+
       - name: Install TreeLDR
         run: |
           git clone https://github.com/spruceid/treeldr.git
