@@ -76,8 +76,5 @@ type rebase:GitHubVerificationMessage {
 /// }
 /// ```
 type rebase:GitHubVerification = (vc:VerifiableCredential with rebase:Credential) &
-	all vc:credentialSubject: (rdfs:Resource with rebase:OwnershipCredentialSubject) &
-	all vc:evidence: (rebase:GitHubVerificationMessage with rebase:GitHubVerificationEvidence);
-
-layout rebase:GitHubVerificationEvidence for rdfs:Resource =
-	&rebase:GitHubVerificationMessage as Ref | rebase:GitHubVerificationMessage as Resource;
+	all vc:credentialSubject: (&rdfs:Resource | rdfs:Resource with rebase:OwnershipDeclaration) &
+	all vc:evidence: (&rebase:GitHubVerificationMessage | rebase:GitHubVerificationMessage);

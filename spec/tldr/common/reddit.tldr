@@ -71,8 +71,5 @@ type rebase:RedditVerificationMessage {
 /// }
 /// ```
 type rebase:RedditVerification = (vc:VerifiableCredential with rebase:Credential) &
-	all vc:credentialSubject: (rdfs:Resource with rebase:OwnershipCredentialSubject) &
-	all vc:evidence: (rebase:RedditVerificationMessage with rebase:RedditVerificationEvidence);
-
-layout rebase:RedditVerificationEvidence for rdfs:Resource =
-	&rebase:RedditVerificationMessage as Ref | rebase:RedditVerificationMessage as Resource;
+	all vc:credentialSubject: (&rdfs:Resource | rdfs:Resource with rebase:OwnershipDeclaration) &
+	all vc:evidence: (&rebase:RedditVerificationMessage | rebase:RedditVerificationMessage);

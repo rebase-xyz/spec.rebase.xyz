@@ -18,7 +18,7 @@ layout rebase:Credential for cred:VerifiableCredential {
 	/// Type of the credential.
 	rdf:type as type: required single multiple &rdfs:Class,
 
-	cred:credentialSubject: required single multiple rebase:CredentialSubject,
+	cred:credentialSubject: required single multiple &rdfs:Resource | rdfs:Resource,
 
 	cred:issuer: &rdfs:Resource,
 	
@@ -38,16 +38,6 @@ layout rebase:Credential for cred:VerifiableCredential {
 	
 	cred:refreshService: single multiple &cred:RefreshService,
 }
-
-/// Credential subject layout.
-/// 
-/// Either a resource or a reference to a resource.
-layout rebase:CredentialSubject for rdfs:Resource =
-	&rdfs:Resource as Ref | rdfs:Resource as Resource;
-
-/// Credential subject layout for declaring the ownership of a resource.
-layout rebase:OwnershipCredentialSubject for rdfs:Resource =
-	&rdfs:Resource as Ref | rebase:OwnershipDeclaration as Resource;
 
 /// Ownership declaration.
 layout rebase:OwnershipDeclaration for rdfs:Resource {

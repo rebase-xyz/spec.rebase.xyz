@@ -71,8 +71,5 @@ type rebase:EmailVerificationMessage {
 /// }
 /// ```
 type rebase:EmailVerification = (vc:VerifiableCredential with rebase:Credential) &
-	all vc:credentialSubject: (rdfs:Resource with rebase:OwnershipCredentialSubject) &
-	all vc:evidence: (rebase:EmailVerificationMessage with rebase:EmailVerificationEvidence);
-
-layout rebase:EmailVerificationEvidence for rdfs:Resource =
-	&rebase:EmailVerificationMessage as Ref | rebase:EmailVerificationMessage as Resource;
+	all vc:credentialSubject: (&rdfs:Resource | rdfs:Resource with rebase:OwnershipDeclaration) &
+	all vc:evidence: (&rebase:EmailVerificationMessage | rebase:EmailVerificationMessage);

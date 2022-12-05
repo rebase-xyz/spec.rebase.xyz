@@ -76,8 +76,5 @@ type rebase:TwitterVerificationPublicTweet {
 /// }
 /// ```
 type rebase:TwitterVerification = (vc:VerifiableCredential with rebase:Credential) &
-	all vc:credentialSubject: (rdfs:Resource with rebase:OwnershipCredentialSubject) &
-	all vc:evidence: (rebase:TwitterVerificationPublicTweet with rebase:TwitterVerificationEvidence);
-
-layout rebase:TwitterVerificationEvidence for rdfs:Resource =
-	&rebase:TwitterVerificationPublicTweet as Ref | rebase:TwitterVerificationPublicTweet as Resource;
+	all vc:credentialSubject: (&rdfs:Resource | rdfs:Resource with rebase:OwnershipDeclaration) &
+	all vc:evidence: (&rebase:TwitterVerificationPublicTweet | rebase:TwitterVerificationPublicTweet);

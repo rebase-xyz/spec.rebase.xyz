@@ -71,8 +71,5 @@ type rebase:SoundCloudVerificationMessage {
 /// }
 /// ```
 type rebase:SoundCloudVerification = (vc:VerifiableCredential with rebase:Credential) &
-	all vc:credentialSubject: (rdfs:Resource with rebase:OwnershipCredentialSubject) &
-	all vc:evidence: (rebase:SoundCloudVerificationMessage with rebase:SoundCloudVerificationEvidence);
-
-layout rebase:SoundCloudVerificationEvidence for rdfs:Resource =
-	&rebase:SoundCloudVerificationMessage as Ref | rebase:SoundCloudVerificationMessage as Resource;
+	all vc:credentialSubject: (&rdfs:Resource | rdfs:Resource with rebase:OwnershipDeclaration) &
+	all vc:evidence: (&rebase:SoundCloudVerificationMessage | rebase:SoundCloudVerificationMessage);
