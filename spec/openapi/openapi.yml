@@ -125,7 +125,7 @@ paths:
             application/yml:
               schema:
                 $ref: './schemas/common/SameControllerEvidence.yml'
-   
+    
 
   /schemas/common/SoundCloudVerification.yml:
     get:
