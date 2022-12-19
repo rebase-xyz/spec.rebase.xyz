@@ -1,0 +1,28 @@
+// Open Digital Rights Language.
+// This file include some required definitions from the
+// <http://www.w3.org/ns/odrl/2/> namespace. In the future, TreeLDR should
+// be able to use the official definition.
+// See: https://www.w3.org/TR/odrl-model
+base <http://www.w3.org/ns/odrl/2/>;
+
+use <http://www.w3.org/2001/XMLSchema#> as xs;
+
+type Policy {
+	uid: required xs:anyURI,
+
+	permission: Rule,
+
+	prohibition: Rule,
+
+	obligation: Rule,
+
+	profile: multiple xs:anyURI,
+
+	inheritFrom: multiple &Policy,
+
+	conflict: ConflictTerm
+}
+
+type Rule;
+
+type ConflictTerm;

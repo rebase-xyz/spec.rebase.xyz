@@ -8,7 +8,7 @@
     "build": "npm run build:spec && npm run build:openapi && npm run build:context",
     "build:spec": "./spec/build.sh",
     "build:openapi": "node ./scripts/schemas-to-openapi.js",
-    "build:context": "node ./scripts/openapi-to-context.js",
+    "build:context": "scripts/tldr-to-context.sh build/contexts/v1/index.json",
     "serve": "npx serve ./build"
   },
   "repository": {

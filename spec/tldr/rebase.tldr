@@ -1,0 +1,46 @@
+// GitHub Verification workflow.
+base <https://w3id.org/rebase>;
+
+use <http://www.w3.org/1999/02/22-rdf-syntax-ns#> as rdf;
+use <http://www.w3.org/2000/01/rdf-schema#> as rdfs;
+use <https://treeldr.org/> as tldr;
+use <http://www.w3.org/ns/odrl/2/> as odrl;
+use <https://www.w3.org/2018/credentials#> as cred;
+use <https://w3id.org/security#> as sec;
+use <https://schema.org/> as schema;
+use <https://w3id.org/rebase#> as rebase;
+
+/// JSON-LD Frame for Verifiable Credential.
+layout rebase:Credential for cred:VerifiableCredential {
+	/// Identifier of the credential.
+	tldr:self as id: &rdfs:Resource,
+
+	/// Type of the credential.
+	rdf:type as type: required single multiple &rdfs:Class,
+
+	cred:credentialSubject: required single multiple &rdfs:Resource | rdfs:Resource,
+
+	cred:issuer: &rdfs:Resource,
+	
+	cred:issuanceDate: required tldr:DateTime,
+
+	sec:proof: single multiple &rdfs:Resource,
+	
+	cred:expirationDate: tldr:DateTime,
+	
+	cred:credentialStatus: &cred:CredentialStatus,
+	
+	cred:termsOfUse: single multiple &odrl:Policy,
+	
+	cred:evidence: required single multiple &rdfs:Resource | rdfs:Resource,
+	
+	cred:credentialSchema: single multiple &cred:CredentialSchema,
+	
+	cred:refreshService: single multiple &cred:RefreshService,
+}
+
+/// Ownership declaration.
+layout rebase:OwnershipDeclaration for rdfs:Resource {
+	tldr:self as id: required &rdfs:Resource,
+	schema:sameAs: &rdfs:Resource
+}

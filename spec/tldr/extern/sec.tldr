@@ -1,0 +1,13 @@
+// This file include some required definitions from the
+// <https://w3id.org/security#> namespace. In the future, TreeLDR should
+// be able to use the official definition.
+use <http://www.w3.org/2000/01/rdf-schema#> as rdfs;
+use <https://w3id.org/security#> as sec;
+
+/// Proofs (Signatures).
+/// 
+/// One or more cryptographic proofs that can be used to detect tampering
+/// and verify the authorship of a credential or presentation.
+/// The specific method used for an embedded proof MUST be included using
+/// the type property. 
+property sec:proof: multiple rdfs:Resource;

@@ -1,0 +1,26 @@
+// This file include some required definitions from the `schema.org` vocabulary.
+// In the future, TreeLDR should be able to use the official N-Quads or
+// JSON-LD definition.
+base <https://schema.org>;
+use <http://www.w3.org/2000/01/rdf-schema#> as rdfs;
+use <https://treeldr.org/> as tldr;
+
+/// Text.
+type Text with tldr:String;
+
+/// URL.
+type URL with tldr:URI;
+
+type DateTime with tldr:DateTime;
+
+/// Name.
+property name: Text;
+
+/// Same as.
+property sameAs: rdfs:Resource;
+
+/// URL of the item.
+property url: URL;
+
+/// Version.
+property version: Text;

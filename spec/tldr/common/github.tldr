@@ -1,0 +1,80 @@
+// Sets the base IRI of the document.
+base <https://w3id.org/rebase>;
+
+// Declare some IRI prefixes.
+use <http://www.w3.org/1999/02/22-rdf-syntax-ns#> as rdf;
+use <http://www.w3.org/2000/01/rdf-schema#> as rdfs;
+use <http://www.w3.org/2001/XMLSchema#> as xs;
+use <https://schema.org/> as schema;
+use <https://treeldr.org/> as tldr;
+use <https://www.w3.org/2018/credentials#> as vc;
+use <https://w3id.org/rebase#> as rebase;
+
+/// GitHub Verification Message.
+/// 
+/// Evidence of o GitHub account control.
+/// 
+/// # Example
+/// ```json
+/// {
+///   "type": [
+///     "GitHubVerificationMessage"
+///   ],
+///   "handle": "{github_username}",
+///   "gistId": "{gist_id}",
+///   "timestamp": "2010-01-01T19:23:24Z"
+/// }
+/// ```
+type rebase:GitHubVerificationMessage {
+	/// Identifier.
+	tldr:self as id: &rdfs:Resource,
+
+	/// Type.
+	rdf:type as type: required single multiple &rdfs:Class,
+
+	/// Handle of the entity.
+	schema:name as handle: schema:Text,
+
+	/// Id of the message.
+	schema:url as gistId: schema:URL,
+	
+	/// Timestamp of the message.
+	schema:temporal as timestamp: schema:DateTime
+}
+
+/// GitHub Verification.
+///
+/// Proof of github account control.
+/// 
+/// # Example
+/// 
+/// ```json
+/// {
+///   "@context": [
+///     "https://www.w3.org/2018/credentials/v1",
+///     "https://w3id.org/rebase/v1"
+///   ],
+///   "id": "urn:uuid:{uuid_v4}",
+///   "type": [
+///     "VerifiableCredential",
+///     "GitHubVerification"
+///   ],
+///   "issuer": "did:web:...",
+///   "issuanceDate": "2010-01-01T19:23:24Z",
+///   "credentialSubject": {
+///     "id":"did:pkh:...",
+///     "sameAs":"https://github.com/{github_handle}"
+///   },
+///   "evidence": {
+///     "type": [
+///       "GithubVerificationMessage"
+///     ],
+///     "handle": "{github_username}",
+///     "gistId": "{gist_id}",
+///     "timestamp": "2010-01-01T19:23:24Z"
+///   }
+/// }
+/// ```
+type rebase:GitHubVerification = (vc:VerifiableCredential with rebase:Credential) &
+	all vc:credentialSubject: (&rdfs:Resource | rdfs:Resource with rebase:OwnershipDeclaration) &
+	all vc:evidence: (&rebase:GitHubVerificationMessage | rebase:GitHubVerificationMessage);

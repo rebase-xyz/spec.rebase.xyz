@@ -1,0 +1,75 @@
+// Sets the base IRI of the document.
+base <https://w3id.org/rebase>;
+
+// Declare some IRI prefixes.
+use <http://www.w3.org/1999/02/22-rdf-syntax-ns#> as rdf;
+use <http://www.w3.org/2000/01/rdf-schema#> as rdfs;
+use <http://www.w3.org/2001/XMLSchema#> as xs;
+use <https://schema.org/> as schema;
+use <https://treeldr.org/> as tldr;
+use <https://www.w3.org/2018/credentials#> as vc;
+use <https://w3id.org/rebase#> as rebase;
+
+/// DNS Verification Message.
+/// 
+/// Proof of Domain control message.
+/// 
+/// # Example
+/// ```json
+/// {
+///   "type":[
+///     "DnsVerificationMessage"
+///   ],
+///   "dnsServer":{dnsServer},
+///   "timestamp":"{timestamp}"
+/// }
+/// ```
+type rebase:DnsVerificationMessage {
+	/// Identifier.
+	tldr:self as id: &rdfs:Resource,
+
+	/// Type.
+	rdf:type as type: required single multiple &rdfs:Class,
+
+	/// URL of domain server used in witness lookup.
+	schema:url as dnsServer: schema:URL,
+	
+	/// ISO8601 timestamp of the DNS text record lookup by the witness.
+	schema:temporal as timestamp: schema:DateTime
+}
+
+/// DNS Verification.
+///
+/// Proof of domain ownership.
+/// 
+/// # Example
+/// 
+/// ```json
+/// {
+///   "@context": [
+///     "https://www.w3.org/2018/credentials/v1",
+///     "https://w3id.org/rebase/v1"
+///   ],
+///   "id": "urn:uuid:{uuid_v4}",
+///   "type": [
+///     "VerifiableCredential",
+///     "DnsVerification"
+///   ],
+///   "issuer": "did:..."
+///   "issuanceDate": "{ISO8601 format timestamp string}"
+///   "credentialSubject": {
+///     "id": "did:...",
+///     "sameAs": "dns:{domain}"
+///   }, 
+///   "evidence": {
+///     "type": [
+///       "DnsVerificationMessage"
+///     ],
+///     "timestamp": "{timestamp}",
+///     "dnsServer": "{dnsServer}"
+///   }
+/// }
+/// ```
+type rebase:DnsVerification = (vc:VerifiableCredential with rebase:Credential) &
+	all vc:credentialSubject: (&rdfs:Resource | rdfs:Resource with rebase:OwnershipDeclaration) &
+	all vc:evidence: (&rebase:DnsVerificationMessage | rebase:DnsVerificationMessage);

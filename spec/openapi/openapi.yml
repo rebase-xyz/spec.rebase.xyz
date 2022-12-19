@@ -102,6 +102,7 @@ paths:
               schema:
                 $ref: './schemas/common/RedditVerificationMessage.yml'
     
+
   /schemas/common/SameControllerAssertion.yml:
     get:
       tags:
@@ -124,7 +125,7 @@ paths:
             application/yml:
               schema:
                 $ref: './schemas/common/SameControllerEvidence.yml'
-   
+    
 
   /schemas/common/SoundCloudVerification.yml:
     get:
